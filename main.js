@@ -1,61 +1,29 @@
 import { setLocalStorage } from "./src/persistance/localstorage";
 import { renderCategorias } from "./src/services/categories";
+import { abrirPopUp } from "./src/services/popup";
+import { productoActivo, setProductoActivo } from "./src/services/products";
+import { handleSearchProductByName } from "./src/services/search";
 import { handleGetProductToStore } from "./src/views/store";
 import './style.css'
 
-/*APLICACIÓN*/
+export let categoriaActiva = null;
+export const setCategoriaActiva =  (categoria) => {
+    categoriaActiva = categoria;
+    console.log(categoriaActiva);
 
-handleGetProductToStore();
+}
 renderCategorias();
-/* HEADER*/
-const buttonAdd = document.getElementById("agregarHeader");
+handleGetProductToStore();
 
+/*-------------HEADER------------*/
+//Boton Agregar
+const buttonAdd = document.getElementById("agregarHeader");
 buttonAdd.addEventListener('click', () => {
     abrirPopUp();
 });
-
-/* POPUP*/
-
-const cancelButton = document.getElementById("cancelButton");
-cancelButton.addEventListener('click', () => {
-    handleCancelButton();
+//Boton Buscar
+const buttonSearch = document.getElementById("buscarHeader");
+buttonSearch.addEventListener('click', () => {
+    handleSearchProductByName();
 });
-const handleCancelButton =()=>{
-    cerrarPopUp();
-};
-//Funciones para el popup
 
-const abrirPopUp = ()=>{
-    const popup = document.getElementById("modalPopUp");
-    popup.style.display= 'flex';
-};
-const cerrarPopUp = ()=>{
-    const popup = document.getElementById("modalPopUp");
-    popup.style.display= 'none';
-};
-
-//Alta o modificacion de elementos
-
-const  acceptSave = document.getElementById("acceptButton");
-
-acceptSave.addEventListener('click', () => {
-    handleElements();
-    });
-
-const handleElements = ()=>{
-
-  const nombre = document.getElementById("nombre").value,
-  imagen = document.getElementById("imagen").value,
-  precio = document.getElementById("precio").value,
-  categoria = document.getElementById("categoria").value;
-
-let object = {
-    id: new Date().toISOString(),
-    nombre,
-    imagen,
-    precio,
-    categoria
-};
-setLocalStorage(object);
-    cerrarPopUp();
-};

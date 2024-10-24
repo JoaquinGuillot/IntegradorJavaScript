@@ -18,7 +18,7 @@
       <div class="divHeaderPrincipal">
         <div class="divHeaderContenido">
           <div class="divHeaderBuscar">
-            <input placeholder="Ingrese elemento" class="inputHeader" type="text">
+            <input placeholder="Ingrese elemento" class="inputHeader" id="inputHeader" type="text">
             <button class="buttonBuscarHeader" id="buscarHeader">
               <span class="material-symbols-outlined">
               search
@@ -59,18 +59,18 @@
       <h1>Agregar o modificar un producto</h1>
     </div>
     <div class="containerInputsPopUp">
-      <input type="text" placeholder="Ingrese un nombre" id="nombre">
-      <input type="text" placeholder="Ingrese una imagen" id="imagen">
-      <input type="number" placeholder="Precio" id="precio">
-      <select name="categoria" id="categoria">
+      <input type="text" placeholder="Ingrese un nombre" id="nombre" >
+      <input type="text" placeholder="Ingrese una imagen" id="imagen" >
+      <input type="number" placeholder="Precio" id="precio" >
+      <select name="categoria" id="categoria" >
         <option value="Sin Seleccion">Seleccione una categoría</option>
         <option value="Gaseosas">Gaseosas</option>
         <option value="Hamburguesas">Hamburguesas</option>
         <option value="Papas">Papas</option>
       </select>
       <div class="containerButtonsPopUp">
-        <button class="buttonPopUp delete" id="deleteButton">Eliminar</button>
         <button class="buttonPopUp cancel" id="cancelButton">Cancelar</button>
+        <button class="buttonPopUp delete" id="deleteButton">Eliminar</button>
         <button class="buttonPopUp accept" id="acceptButton">Aceptar</button>
       </div>
     </div>
